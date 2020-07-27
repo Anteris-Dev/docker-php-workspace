@@ -6,8 +6,9 @@ FROM php:7.4-cli-alpine
     # Install Composer
     COPY --from=composer /usr/bin/composer /usr/bin/composer
 
-    # Install Node
-    RUN apk add --no-cache nodejs npm
+    # Install Node and some common PHP extensions we will need
+    RUN apk add --no-cache nodejs npm \
+        && docker-php-ext-install bcmath opcache pdo_mysql
 
     # Set the Working Directory
     RUN rm -rf /var/www \
