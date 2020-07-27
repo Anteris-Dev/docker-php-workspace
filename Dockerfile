@@ -9,10 +9,6 @@ FROM php:7.4-cli-alpine
     # Install Node
     RUN apk add --no-cache nodejs npm
 
-    # Override Defaults
-    CMD []
-    ENTRYPOINT []
-
     # Set the Working Directory
     RUN rm -rf /var/www \
         && mkdir -p /var/www/app \
